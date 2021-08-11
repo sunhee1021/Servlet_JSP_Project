@@ -1,0 +1,95 @@
+@charset "UTF-8";
+* {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+td:hover {
+	cursor: pointer;
+	background-color: lightgray;
+}
+.table td, .table th {
+	vertical-align: middle;
+}
+/***모달***/
+.modal-title {
+	font-weight: bold;
+	font-size: 20px;
+}
+.modal-content {
+	margin-top: 100px;
+}
+.modal-body>img {
+	max-width: 55%;
+	height: auto;
+	float: left;
+}
+p {
+	text-align: center;
+	color: black;
+	font-family: 'Nanum Gothic', sans-serif;
+	align-content: center;
+}
+p>.category {
+	font-size: 18px;
+}
+p>.intro-tag {
+	color: #E68A00;
+}
+.modal-title-area {
+	padding-top: 40px;
+	text-align: center;
+	max-width: 180px;
+	width: 100%;
+	height: 200px;
+	float: right;
+}
+.modal-body>.categoty {
+	font-size: 18px;
+	text-align: 80px;
+}
+.intro-tag {
+	font-size: 16px;
+	text-align: 120px;
+	color: #E68A00;
+	overflow: auto;
+	height: 80px;
+}
+.modal-intro-area {
+	max-width: 100%;
+	width: 100%;
+	height: 150px;
+	float: left;
+}
+.intro-text {
+	height: 80px;
+	overflow: auto;
+}
+.intro-addr {
+	margin: 0 auto;
+}
+.modal-map-area {
+	width: 100%;
+	height: 200px;
+	float: left;
+}
+.map {
+	width: 100%;
+	height: 100%;
+}
+#button-insert, #createMapBtn, #button-delete {
+	background-color: #E68A00;
+}
+.mylist-header-margin{
+	width: 100%;
+	height: 30px;
+}
+/* 카드 이미지 사이즈 */
+.card-image{
+	width: 100%;
+	height: 300px;
+  	object-fit: cover;
+  	border: thick;
+}

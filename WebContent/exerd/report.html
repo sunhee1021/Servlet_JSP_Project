@@ -1,0 +1,1052 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+table {width:100%;}
+th {background-color:#ccc;}
+div {margin-bottom:30px;}
+</style>
+</head>
+<body>
+<div>
+<br><br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">회원테이블</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">Member</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<br><br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">PASSWORD</td>
+<td colSpan="1">비밀번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(20)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">DIVISION</td>
+<td colSpan="1">회원구분</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(5)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">NICKNAME</td>
+<td colSpan="1">닉네임</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(8)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">UK</td>
+</tr>
+</table>
+<br>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">찜 목록</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">CARTLIST</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">CONTENT_ID</td>
+<td colSpan="1">제주비짓 REST API에서 CONTENT_ID의 값</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK, FK</td>
+</tr>
+</table>
+</div>
+<p/>
+<div>
+<br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">공지사항 게시판</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">NOTICE_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<br>
+<br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">N_NUMBER</td>
+<td colSpan="1">질문 글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">N_TITLE</td>
+<td colSpan="1">질문 글 제목</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">N_FILENAME</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">N_FILESIZE</td>
+<td colSpan="1">파일 크기</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">N_CONTENT</td>
+<td colSpan="1">글내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">N_REAL_FILENAME</td>
+<td colSpan="1">실 파일명</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">N_VIEWCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">N_WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">아인 게시판</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">AIN_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">C_NUMBER</td>
+<td colSpan="1">글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">글 제목</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">글내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">SYSDATE</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">FILENAME</td>
+<td colSpan="1">파일 이름</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">REFER</td>
+<td colSpan="1">참조 글 번호(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">DEPTH</td>
+<td colSpan="1">들여쓰기(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">STEP</td>
+<td colSpan="1">글 순서(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">VIEWCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">0</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">FILEREALNAME</td>
+<td colSpan="1">파일저장명</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">FILESIZE</td>
+<td colSpan="1">파일크기</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">아인 게시판 댓글</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">AIN_REPLY_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">CR_NUMBER</td>
+<td colSpan="1">댓글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">댓글 내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">SYSDATE</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">C_NUMBER</td>
+<td colSpan="1">글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<br>
+<br><br><br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">Q&A 게시판</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">QNA_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">QNA_NUMBER</td>
+<td colSpan="1">질문 글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">QNA_TITLE</td>
+<td colSpan="1">질문 글 제목</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">QNA_FILENAME</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">QNA_FILESIZE</td>
+<td colSpan="1">파일 크기</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">QNA_REAL_FILENAME</td>
+<td colSpan="1">실 파일명</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">QNA_CONTENT</td>
+<td colSpan="1">글 내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">QNA_WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">SYSDATE</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">QNA_REFER</td>
+<td colSpan="1">참조 글 번호(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">QNA_DEPTH</td>
+<td colSpan="1">들여쓰기(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">0</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">QNA_STEP</td>
+<td colSpan="1">글 순서(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">0</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">QNA_VIEWCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">0</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">QNA_PASSWORD</td>
+<td colSpan="1">비밀번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(4)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">QNA_STATUS</td>
+<td colSpan="1">게시글 상태</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">1</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">준수 게시판</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">COMMUNITY_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">C_NUMBER</td>
+<td colSpan="1">글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">C_TITLE</td>
+<td colSpan="1">글 제목</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">C_CONTENT</td>
+<td colSpan="1">글내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">C_WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">SYSDATE</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">C_VIEWCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">C_FILE</td>
+<td colSpan="1">파일 이름</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">선희 게시판</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">SH_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">커뮤니티 게시판</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">C_NUMBER</td>
+<td colSpan="1">글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">글 제목</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(100)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">글내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">FILENAME</td>
+<td colSpan="1">파일 이름</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">REFER</td>
+<td colSpan="1">참조 글 번호(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">DEPTH</td>
+<td colSpan="1">들여쓰기(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">STEP</td>
+<td colSpan="1">글 순서(답글)</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">VIEWCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">FILEREALNAME</td>
+<td colSpan="1">파일 실제 이름</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(200)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">FILESIZE</td>
+<td colSpan="1">파일 크기</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">엔티티 타입명</th>
+<td colSpan="2">선희 게시판 댓글</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성일</th>
+<td colSpan="2">2021  4 27</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블명</th>
+<td colSpan="2">SH_REPLY_BOARD</td>
+<th colSpan="2" style="background-color: #CCCCCC;">작성자</th>
+<td colSpan="2">TEAM4</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #CCCCCC;">테이블 설명</th>
+<td colSpan="6">커뮤니티 게시판 댓글</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #CCCCCC;">번호</th>
+<th colSpan="1" style="background-color: #CCCCCC;">컬럼명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">속성명</th>
+<th colSpan="1" style="background-color: #CCCCCC;">도메인</th>
+<th colSpan="1" style="background-color: #CCCCCC;">데이터 타입</th>
+<th colSpan="1" style="background-color: #CCCCCC;">NULL 여부</th>
+<th colSpan="1" style="background-color: #CCCCCC;">기본값</th>
+<th colSpan="1" style="background-color: #CCCCCC;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">CR_NUMBER</td>
+<td colSpan="1">댓글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">댓글 내용</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(2000)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">WRITEDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">EMAIL</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NVARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">C_NUMBER</td>
+<td colSpan="1">글 번호</td>
+<td colSpan="1">N/A</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+</body>
+</html>

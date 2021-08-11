@@ -1,0 +1,880 @@
+
+/* 회원테이블 */
+CREATE TABLE Member (
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	PASSWORD NVARCHAR2(20) NOT NULL, /* 비밀번호 */
+	DIVISION NVARCHAR2(5), /* 회원구분 */
+	NICKNAME NVARCHAR2(8) NOT NULL /* 닉네임 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE Member IS '회원테이블';
+
+COMMENT ON COLUMN Member.EMAIL IS '이메일';
+
+COMMENT ON COLUMN Member.PASSWORD IS '비밀번호';
+
+COMMENT ON COLUMN Member.DIVISION IS '회원구분';
+
+COMMENT ON COLUMN Member.NICKNAME IS '닉네임';
+
+CREATE UNIQUE INDEX PK_Member
+	ON Member (
+		EMAIL ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+CREATE UNIQUE INDEX UIX_Member
+	ON Member (
+		NICKNAME ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE Member
+	ADD
+		CONSTRAINT PK_Member
+		PRIMARY KEY (
+			EMAIL
+		);
+
+ALTER TABLE Member
+	ADD
+		CONSTRAINT UK_Member
+		UNIQUE (
+			NICKNAME
+		);
+
+/* 찜 목록 */
+CREATE TABLE CARTLIST (
+	CONTENT_ID NVARCHAR2(100) NOT NULL, /* 제주비짓 REST API에서 CONTENT_ID의 값 */
+	EMAIL NVARCHAR2(30) NOT NULL /* 이메일 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE CARTLIST IS '찜 목록';
+
+COMMENT ON COLUMN CARTLIST.CONTENT_ID IS '제주비짓 REST API에서 CONTENT_ID의 값';
+
+COMMENT ON COLUMN CARTLIST.EMAIL IS '이메일';
+
+CREATE UNIQUE INDEX PK_CARTLIST
+	ON CARTLIST (
+		CONTENT_ID ASC,
+		EMAIL ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE CARTLIST
+	ADD
+		CONSTRAINT PK_CARTLIST
+		PRIMARY KEY (
+			CONTENT_ID,
+			EMAIL
+		);
+
+/* 공지사항 게시판 */
+CREATE TABLE NOTICE_BOARD (
+	N_NUMBER NUMBER NOT NULL, /* 질문 글 번호 */
+	N_TITLE NVARCHAR2(100) NOT NULL, /* 질문 글 제목 */
+	N_FILENAME NVARCHAR2(200), /* 파일명 */
+	N_FILESIZE NUMBER, /* 파일 크기 */
+	N_CONTENT NVARCHAR2(2000) NOT NULL, /* 글내용 */
+	N_REAL_FILENAME NVARCHAR2(200), /* 실 파일명 */
+	N_VIEWCOUNT NUMBER NOT NULL, /* 조회수 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	N_WRITEDATE DATE NOT NULL /* 작성일 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE NOTICE_BOARD IS '공지사항 게시판';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_NUMBER IS '질문 글 번호';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_TITLE IS '질문 글 제목';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_FILENAME IS '파일명';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_FILESIZE IS '파일 크기';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_CONTENT IS '글내용';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_REAL_FILENAME IS '실 파일명';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_VIEWCOUNT IS '조회수';
+
+COMMENT ON COLUMN NOTICE_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN NOTICE_BOARD.N_WRITEDATE IS '작성일';
+
+CREATE UNIQUE INDEX PK_NOTICE_BOARD
+	ON NOTICE_BOARD (
+		N_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE NOTICE_BOARD
+	ADD
+		CONSTRAINT PK_NOTICE_BOARD
+		PRIMARY KEY (
+			N_NUMBER
+		);
+
+/* 아인 게시판 */
+CREATE TABLE AIN_BOARD (
+	C_NUMBER NUMBER NOT NULL, /* 글 번호 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	TITLE NVARCHAR2(100) NOT NULL, /* 글 제목 */
+	CONTENT NVARCHAR2(2000) NOT NULL, /* 글내용 */
+	WRITEDATE DATE DEFAULT SYSDATE, /* 작성일 */
+	FILENAME NVARCHAR2(200), /* 파일 이름 */
+	REFER NUMBER, /* 참조 글 번호(답글) */
+	DEPTH NUMBER, /* 들여쓰기(답글) */
+	STEP NUMBER, /* 글 순서(답글) */
+	VIEWCOUNT NUMBER DEFAULT 0, /* 조회수 */
+	FILEREALNAME NVARCHAR2(200), /* 파일저장명 */
+	FILESIZE NUMBER /* 파일크기 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE AIN_BOARD IS '아인 게시판';
+
+COMMENT ON COLUMN AIN_BOARD.C_NUMBER IS '글 번호';
+
+COMMENT ON COLUMN AIN_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN AIN_BOARD.TITLE IS '글 제목';
+
+COMMENT ON COLUMN AIN_BOARD.CONTENT IS '글내용';
+
+COMMENT ON COLUMN AIN_BOARD.WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN AIN_BOARD.FILENAME IS '파일 이름';
+
+COMMENT ON COLUMN AIN_BOARD.REFER IS '참조 글 번호(답글)';
+
+COMMENT ON COLUMN AIN_BOARD.DEPTH IS '들여쓰기(답글)';
+
+COMMENT ON COLUMN AIN_BOARD.STEP IS '글 순서(답글)';
+
+COMMENT ON COLUMN AIN_BOARD.VIEWCOUNT IS '조회수';
+
+COMMENT ON COLUMN AIN_BOARD.FILEREALNAME IS '파일저장명';
+
+COMMENT ON COLUMN AIN_BOARD.FILESIZE IS '파일크기';
+
+CREATE UNIQUE INDEX PK_AIN_BOARD
+	ON AIN_BOARD (
+		C_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE AIN_BOARD
+	ADD
+		CONSTRAINT PK_AIN_BOARD
+		PRIMARY KEY (
+			C_NUMBER
+		);
+
+/* 아인 게시판 댓글 */
+CREATE TABLE AIN_REPLY_BOARD (
+	CR_NUMBER NUMBER NOT NULL, /* 댓글 번호 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	CONTENT NVARCHAR2(2000) NOT NULL, /* 댓글 내용 */
+	WRITEDATE DATE DEFAULT SYSDATE NOT NULL, /* 작성일 */
+	C_NUMBER NUMBER NOT NULL /* 글 번호 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE AIN_REPLY_BOARD IS '아인 게시판 댓글';
+
+COMMENT ON COLUMN AIN_REPLY_BOARD.CR_NUMBER IS '댓글 번호';
+
+COMMENT ON COLUMN AIN_REPLY_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN AIN_REPLY_BOARD.CONTENT IS '댓글 내용';
+
+COMMENT ON COLUMN AIN_REPLY_BOARD.WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN AIN_REPLY_BOARD.C_NUMBER IS '글 번호';
+
+CREATE UNIQUE INDEX PK_AIN_REPLY_BOARD
+	ON AIN_REPLY_BOARD (
+		CR_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE AIN_REPLY_BOARD
+	ADD
+		CONSTRAINT PK_AIN_REPLY_BOARD
+		PRIMARY KEY (
+			CR_NUMBER
+		);
+
+/* Q&A 게시판 */
+CREATE TABLE QNA_BOARD (
+	QNA_NUMBER NUMBER NOT NULL, /* 질문 글 번호 */
+	QNA_TITLE NVARCHAR2(100) NOT NULL, /* 질문 글 제목 */
+	QNA_FILENAME NVARCHAR2(100), /* 파일명 */
+	QNA_FILESIZE NUMBER, /* 파일 크기 */
+	QNA_REAL_FILENAME NVARCHAR2(100), /* 실 파일명 */
+	QNA_CONTENT NVARCHAR2(2000) NOT NULL, /* 글 내용 */
+	QNA_WRITEDATE DATE DEFAULT SYSDATE NOT NULL, /* 작성일 */
+	QNA_REFER NUMBER, /* 참조 글 번호(답글) */
+	QNA_DEPTH NUMBER DEFAULT 0, /* 들여쓰기(답글) */
+	QNA_STEP NUMBER DEFAULT 0, /* 글 순서(답글) */
+	QNA_VIEWCOUNT NUMBER DEFAULT 0, /* 조회수 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	QNA_PASSWORD NVARCHAR2(4) NOT NULL, /* 비밀번호 */
+	QNA_STATUS NUMBER DEFAULT 1 /* 게시글 상태 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE QNA_BOARD IS 'Q&A 게시판';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_NUMBER IS '질문 글 번호';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_TITLE IS '질문 글 제목';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_FILENAME IS '파일명';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_FILESIZE IS '파일 크기';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_REAL_FILENAME IS '실 파일명';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_CONTENT IS '글 내용';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_REFER IS '참조 글 번호(답글)';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_DEPTH IS '들여쓰기(답글)';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_STEP IS '글 순서(답글)';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_VIEWCOUNT IS '조회수';
+
+COMMENT ON COLUMN QNA_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_PASSWORD IS '비밀번호';
+
+COMMENT ON COLUMN QNA_BOARD.QNA_STATUS IS '게시글 상태';
+
+CREATE UNIQUE INDEX PK_QNA_BOARD
+	ON QNA_BOARD (
+		QNA_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE QNA_BOARD
+	ADD
+		CONSTRAINT PK_QNA_BOARD
+		PRIMARY KEY (
+			QNA_NUMBER
+		);
+
+/* 준수 게시판 */
+CREATE TABLE COMMUNITY_BOARD (
+	C_NUMBER NUMBER NOT NULL, /* 글 번호 */
+	C_TITLE NVARCHAR2(100) NOT NULL, /* 글 제목 */
+	C_CONTENT NVARCHAR2(2000) NOT NULL, /* 글내용 */
+	C_WRITEDATE DATE DEFAULT SYSDATE NOT NULL, /* 작성일 */
+	C_VIEWCOUNT NUMBER, /* 조회수 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	C_FILE NVARCHAR2(200) /* 파일 이름 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE COMMUNITY_BOARD IS '준수 게시판';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_NUMBER IS '글 번호';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_TITLE IS '글 제목';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_CONTENT IS '글내용';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_VIEWCOUNT IS '조회수';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN COMMUNITY_BOARD.C_FILE IS '파일 이름';
+
+CREATE UNIQUE INDEX PK_COMMUNITY_BOARD
+	ON COMMUNITY_BOARD (
+		C_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE COMMUNITY_BOARD
+	ADD
+		CONSTRAINT PK_COMMUNITY_BOARD
+		PRIMARY KEY (
+			C_NUMBER
+		);
+
+/* 선희 게시판 */
+CREATE TABLE SH_BOARD (
+	C_NUMBER NUMBER NOT NULL, /* 글 번호 */
+	TITLE NVARCHAR2(100) NOT NULL, /* 글 제목 */
+	CONTENT NVARCHAR2(2000) NOT NULL, /* 글내용 */
+	WRITEDATE DATE NOT NULL, /* 작성일 */
+	FILENAME NVARCHAR2(200), /* 파일 이름 */
+	REFER NUMBER, /* 참조 글 번호(답글) */
+	DEPTH NUMBER, /* 들여쓰기(답글) */
+	STEP NUMBER, /* 글 순서(답글) */
+	VIEWCOUNT NUMBER, /* 조회수 */
+	EMAIL NVARCHAR2(30), /* 이메일 */
+	FILEREALNAME NVARCHAR2(200), /* 파일 실제 이름 */
+	FILESIZE NUMBER /* 파일 크기 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE SH_BOARD IS '커뮤니티 게시판';
+
+COMMENT ON COLUMN SH_BOARD.C_NUMBER IS '글 번호';
+
+COMMENT ON COLUMN SH_BOARD.TITLE IS '글 제목';
+
+COMMENT ON COLUMN SH_BOARD.CONTENT IS '글내용';
+
+COMMENT ON COLUMN SH_BOARD.WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN SH_BOARD.FILENAME IS '파일 이름';
+
+COMMENT ON COLUMN SH_BOARD.REFER IS '참조 글 번호(답글)';
+
+COMMENT ON COLUMN SH_BOARD.DEPTH IS '들여쓰기(답글)';
+
+COMMENT ON COLUMN SH_BOARD.STEP IS '글 순서(답글)';
+
+COMMENT ON COLUMN SH_BOARD.VIEWCOUNT IS '조회수';
+
+COMMENT ON COLUMN SH_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN SH_BOARD.FILEREALNAME IS '파일 실제 이름';
+
+COMMENT ON COLUMN SH_BOARD.FILESIZE IS '파일 크기';
+
+CREATE UNIQUE INDEX PK_SH_BOARD
+	ON SH_BOARD (
+		C_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE SH_BOARD
+	ADD
+		CONSTRAINT PK_SH_BOARD
+		PRIMARY KEY (
+			C_NUMBER
+		);
+
+/* 선희 게시판 댓글 */
+CREATE TABLE SH_REPLY_BOARD (
+	CR_NUMBER NUMBER NOT NULL, /* 댓글 번호 */
+	CONTENT NVARCHAR2(2000) NOT NULL, /* 댓글 내용 */
+	WRITEDATE DATE NOT NULL, /* 작성일 */
+	EMAIL NVARCHAR2(30) NOT NULL, /* 이메일 */
+	C_NUMBER NUMBER NOT NULL /* 글 번호 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE SH_REPLY_BOARD IS '커뮤니티 게시판 댓글';
+
+COMMENT ON COLUMN SH_REPLY_BOARD.CR_NUMBER IS '댓글 번호';
+
+COMMENT ON COLUMN SH_REPLY_BOARD.CONTENT IS '댓글 내용';
+
+COMMENT ON COLUMN SH_REPLY_BOARD.WRITEDATE IS '작성일';
+
+COMMENT ON COLUMN SH_REPLY_BOARD.EMAIL IS '이메일';
+
+COMMENT ON COLUMN SH_REPLY_BOARD.C_NUMBER IS '글 번호';
+
+CREATE UNIQUE INDEX PK_SH_REPLY_BOARD
+	ON SH_REPLY_BOARD (
+		CR_NUMBER ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	SORT
+	NOPARALLEL;
+
+ALTER TABLE SH_REPLY_BOARD
+	ADD
+		CONSTRAINT PK_SH_REPLY_BOARD
+		PRIMARY KEY (
+			CR_NUMBER
+		);
+
+ALTER TABLE CARTLIST
+	ADD
+		CONSTRAINT FK_Member_TO_CARTLIST
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE NOTICE_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_NOTICE_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE AIN_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_AIN_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE AIN_REPLY_BOARD
+	ADD
+		CONSTRAINT FK_AIN_B_TO_AIN_REPLY_B
+		FOREIGN KEY (
+			C_NUMBER
+		)
+		REFERENCES AIN_BOARD (
+			C_NUMBER
+		);
+
+ALTER TABLE AIN_REPLY_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_AIN_REPLY_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE QNA_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_QNA_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE COMMUNITY_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_COMMUNITY_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE SH_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_SH_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+ALTER TABLE SH_REPLY_BOARD
+	ADD
+		CONSTRAINT FK_CMNT_BRD_TO_CMNT_RPL_BRD
+		FOREIGN KEY (
+			C_NUMBER
+		)
+		REFERENCES SH_BOARD (
+			C_NUMBER
+		);
+
+ALTER TABLE SH_REPLY_BOARD
+	ADD
+		CONSTRAINT FK_Member_TO_SH_REPLY_BOARD
+		FOREIGN KEY (
+			EMAIL
+		)
+		REFERENCES Member (
+			EMAIL
+		);
+
+
+
+insert into member (email, password, division, nickname)
+VALUES ('admin@naver.com', 'admin@1004', '0', '관리자');
+
+SELECT * FROM NOTICE_BOARD nb ;
+SELECT * FROM "MEMBER" ;
+DELETE FROM NOTICE_BOARD nb WHERE N_NUMBER =3;
+
+SELECT n_number_seq.nextval FROM dual;
+
+
+--sh_board
+create sequence sh_board_c_number;
+--sh_reply_board
+create sequence sh_reply_board__C_NUMBER;
+
+--notice_board
+CREATE SEQUENCE n_number_seq;
+
+--ain_board
+create sequence ainsequence;
+--ain_reply_board
+create sequence ainreplyseq;
+
+--qna_board
+create sequence qna_seq;
+
+--community_board
+CREATE SEQUENCE  "JYP"."COMMUNITY_BOARD_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+
+--qna_board															
+INSERT INTO QNA_BOARD(	QNA_NUMBER	,QNA_TITLE	,QNA_FILENAME	,QNA_FILESIZE	,QNA_REAL_FILENAME	,QNA_CONTENT	,QNA_WRITEDATE	,QNA_REFER	,QNA_DEPTH	,QNA_STEP	,QNA_VIEWCOUNT	EMAIL	,QNA_PASSWORD	,QNA_STATUS	)
+VALUES(	qna_seq.nextval	,'질문 드립니다. 답변 부탁드려요'	,null	,0	,null	,'관광지 검색은 없나요?'	sysdate	1	0	0	0	bit01@naver.com'	0000'	1	);
+															
+INSERT INTO QNA_BOARD(	QNA_NUMBER	,QNA_TITLE	,QNA_FILENAME	,QNA_FILESIZE	,QNA_REAL_FILENAME	,QNA_CONTENT	,QNA_WRITEDATE	,QNA_REFER	,QNA_DEPTH	,QNA_STEP	,QNA_VIEWCOUNT	EMAIL	,QNA_PASSWORD	,QNA_STATUS	)
+VALUES(	qna_seq.nextval	,'답변 드립니다'	,null	,0	,null	,'추후 추가할 예정입니다.'	sysdate	1	1	1	0	admin@naver.com'	0000'	0	);
+															
+INSERT INTO QNA_BOARD(	QNA_NUMBER	,QNA_TITLE	,QNA_FILENAME	,QNA_FILESIZE	,QNA_REAL_FILENAME	,QNA_CONTENT	,QNA_WRITEDATE	,QNA_REFER	,QNA_DEPTH	,QNA_STEP	,QNA_VIEWCOUNT	EMAIL	,QNA_PASSWORD	,QNA_STATUS	)
+VALUES(	qna_seq.nextval	,'질문드려요!!!'	,null	,0	,null	,'왜 JYP인가요??'	sysdate	2	0	0	0	bit02@naver.com'	0000'	1	);
+															
+--sh_board															
+INSERT INTO SH_BOARD(	C_NUMBER,	TITLE,	CONTENT,	WRITEDATE,	FILENAME,	REFER,	DEPTH,	STEP,	VIEWCOUNT,	EMAIL,	FILEREALNAME,	FILESIZE	)		
+VALUES(	sh_board_c_number.nextval,	 '만나서 반갑습니다',	 '우리는 TEAM4입니다.',	sysdate,	null,	0,	0,	0,	0,	 'admin@naver.com',	null,	0	);		
+															
+INSERT INTO SH_BOARD(	C_NUMBER,	TITLE,	CONTENT,	WRITEDATE,	FILENAME,	REFER,	DEPTH,	STEP,	VIEWCOUNT,	EMAIL,	FILEREALNAME,	FILESIZE	)		
+VALUES(	sh_board_c_number.nextval,	 '안녕하세요',	 '좋은 하루 되세요~',	sysdate,	null,	1,	0,	0,	0,	 'bit01@naver.com',	null,	0	);		
+															
+INSERT INTO SH_BOARD(	C_NUMBER,	TITLE,	CONTENT,	WRITEDATE,	FILENAME,	REFER,	DEPTH,	STEP,	VIEWCOUNT,	EMAIL,	FILEREALNAME,	FILESIZE	)		
+VALUES(	sh_board_c_number.nextval,	 '안녕하세요',	 '현시각 20:04분 집에 갈 수 있을까',	sysdate,	null,	1,	1,	1,	0,	 'bit02@naver.com',	null,	0	);		
+
+
+-- 회원 테이블
+select * from member;
+insert into Member (email, password, division, nickname)
+VALUES ('admin@naver.com', 'admin@1004', '0', '관리자');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit01@naver.com', 'bit01@1004', '1', 'bit01');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit02@naver.com', 'bit02@1004', '1', 'bit02');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit03@naver.com', 'bir03@1004', '1', 'bit03');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit04@naver.com', 'bit04@1004', '1', 'bit04');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit05@naver.com', 'bit05@1004', '1', 'bit05');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit06@naver.com', 'bit06@1004', '1', 'bit06');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit07@naver.com', 'bit07@1004', '1', 'bit07');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit08@naver.com', 'bit08@1004', '1', 'bit08');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit09@naver.com', 'bit09@1004', '1', 'bit09');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit10@naver.com', 'bit10@1004', '1', 'bit10');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit11@naver.com', 'bit11@1004', '1', 'bit11');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit12@naver.com', 'bit12@1004', '1', 'bit12');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit13@naver.com', 'bit13@1004', '1', 'bit13');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit14@naver.com', 'bit14@1004', '1', 'bit14');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit15@naver.com', 'bit15@1004', '1', 'bit15');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit16@naver.com', 'bit16@1004', '1', 'bit16');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit17@naver.com', 'bit17@1004', '1', 'bit17');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit18@naver.com', 'bit18@1004', '1', 'bit18');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit19@naver.com', 'bit19@1004', '1', 'bit19');
+INSERT into member (email, password, division, nickname)
+VALUES ('bit20@naver.com', 'bit20@1004', '1', 'bit20');
+
+-- 공지사항 게시판 테이블
+--1
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '공지사항 게시판입니다.', null, null, '앞으로 공지사항 게시판을 사용될 게시판입니다!', 
+null, 0, 'admin@naver.com', sysdate);
+--2
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '강풍주의보 발령', null, null, '제주도 서귀포시 지역 일대에 강풍주의보가 발령되었습니다. 여행객들은 여행을 자제하여 주시고 안전한 곳에서 제주도를 즐겨주시면 감사하겠습니다', 
+null, 0, 'admin@naver.com', sysdate);
+--3
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '과다요금 주의!.', null, null, '제주관광공사에 인증되지않은 엡체들의 과다요금 피해사례가 증가되고 있습니다. 각 여행객들은 이 부분 유념하시어 제주관광을 즐겨주시길 바랍니다', 
+null, 0, 'admin@naver.com', sysdate);
+--4
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '행사장 건물 리모델링으로 인하여 [빛의 벙커]행사가 취소되었습니다 여행객께서는 참고하여 주시기 바랍니다', 
+null, 0, 'admin@naver.com', sysdate);
+--5
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '[우도]관련 여행정보 업데이트 공지', null, null, '많은 여행객분들께서 문의해주셨던 섬속의 섬[우도]로 가는 왕복선의 출항시간, 입항시간 정보와 우도 내에 셔틀버스 운행시간에 대한 정보가 업데이트 될 예정입니다 잠시만 기다려주세요!', 
+null, 0, 'admin@naver.com', sysdate);
+--6
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '서비스 점검 안내', null, null, '다음주 수요일 03:00~05:00시에 서비스 점검을 위한 사이트 이용정지가 예정되어 있습니다 여행객분들께서는 계획 수립시에 참고하여 주시면 감사하겠습니다.', 
+null, 0, 'admin@naver.com', sysdate);
+--7
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '[사회적거리두기] 도내 관광지 등 이용인원 및 이용방법 제한 관련 안내', null, null, '현재 제주도내 각 관광지와 음식점, 숙박시설, 판매시설 등에서는 코로나19에 확산에 따른 정부의 사회적 거리두기 방역조치에 따라, 이용인원이나 이용방법을 제한하여 운영하는 곳이 많이 있습니다. 여행객들은 이점 참고하시어 여행을 즐겨주시면 감사하겠습니다', 
+null, 0, 'admin@naver.com', sysdate);
+--8
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '사이트 이용규정', null, null, '지나친 업소의 홍보나 혐오감을 불러일으키는 게시글 사전 통보없이 삭제될 수 있음을 알려드립니다.', 
+null, 0, 'admin@naver.com', sysdate);
+--9
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, 'JYP와 함께하는 이벤트', null, null, '게시판에 글 작성한 회원분들중 3명을 무작위로 추첨하여 [롯데렌터카 20%할인 쿠폰]을 증정해드리도록 하겠습니다 자세한 내용은 추후 공지하겠습니다.', 
+null, 0, 'admin@naver.com', sysdate);
+--10
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '진짜 JYP가 온다!!', null, null, '6월 15일 제주 이시돌 목장에서 가수 박진영의 사회적 거리두기 콘서트가 있습니다! 자세한 내용은 추후 공지하도록 하겠습니다.', 
+null, 0, 'admin@naver.com', sysdate);
+--11
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '내 여행지 여행 인증 이벤트', null, null, '내가 담은 여행지에서 사진찍고 내 여행지 인증한 다음 게시판에 올려주시면 제주도의 향기가 담긴 디퓨저를 증정해드립니다! 선착순 20명에 한합니다!', 
+null, 0, 'admin@naver.com', sysdate);
+--12
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '당신의 제주를 보여주세요', null, null, '저희 사이트에서는 나와있지 않은 아름다운 제주도의 모습을 게시판에 게시글로 알려주시면 저희가 직접 보고 선정하여 관광지 목록에 추가하도록 하겠습니다! 많은 참여 부탁드립니다!', 
+null, 0, 'admin@naver.com', sysdate);
+--13
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '개인정보 지키기', null, null, '저희 [JTP]운영진들은 어떠한 이유에서도 개인정보를 요구하지 않습니다. [JTP]를 사칭하는 스미싱단체를 주의해주세요!', 
+null, 0, 'admin@naver.com', sysdate);
+--14
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '더워지기 전에!', null, null, '저희 사이트에서 관광지 담고 여행준비하시면 할인권을 드립니다! 선착순 7명!', 
+null, 0, 'admin@naver.com', sysdate);
+--15
+insert into notice_board 
+(n_number, n_title, n_filename, n_filesize, n_content, n_real_filename, 
+n_viewcount, email, n_writedate)
+values 
+(n_number_seq.nextval, '여름휴가는 제주도에서!', null, null, '여름을 더욱 시원하고 재밌게 즐기실 수 있도록 여름관련 제주관광정보를 추가 업데이트 하겠습니다! 많은 기대 부탁드립니다!', 
+null, 0, 'admin@naver.com', sysdate);
+-- 아인 게시판
+create sequence ainsequence;
+create sequence ainreplyseq;
+select * from ain_board;
+insert into ain_board
+(c_number, email, title, content, writedate, filename, refer, depth, step, viewcount, FILEREALNAME, FILESIZE)
+values
+(ainsequence.nextval, 'bit01@naver.com', '저 제주도 처음가는데..','흑돼지 맛있는곳 추천해주세요!', sysdate, null, 1 , 0, 0, 0, null, null);
+insert into ain_board
+(c_number, email, title, content, writedate, filename, refer, depth, step, viewcount, FILEREALNAME, FILESIZE)
+values
+(ainsequence.nextval, 'bit02@naver.com', '렌트카 저렴한곳 추천해주쇼잉','3박4일정도 제주도 여행을 떠나는데 옵션 괜찮고 가격 착한 렌트카업체 아시는 분은 추천해주시면 정말 감사하겠습니다', sysdate, null, 2 , 0, 0, 0, null, null);
+insert into ain_board
+(c_number, email, title, content, writedate, filename, refer, depth, step, viewcount, FILEREALNAME, FILESIZE)
+values
+(ainsequence.nextval, 'bit03@naver.com', '동백포레스트','위미리에 동백포레스트라고 꽃밭있는데 인생샷 건지기 너무 좋습니다 꼭 가세요!', sysdate, null, 3 , 0, 0, 0, null, null);
+-- 준수 게시판
+CREATE SEQUENCE  "JYP"."COMMUNITY_BOARD_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+insert into community_board
+(C_NUMBER, C_TITLE, C_CONTENT, C_WRITEDATE, C_VIEWCOUNT, EMAIL, C_FILE)
+values
+(COMMUNITY_BOARD_SEQ.nextval, '우도 가실분?', '3명입니다 1~2명 추가인원 구합니다~~~~~ 저희 재밌어요', sysdate, 0, 'bit01@naver.com', null);
+insert into community_board
+(C_NUMBER, C_TITLE, C_CONTENT, C_WRITEDATE, C_VIEWCOUNT, EMAIL, C_FILE)
+values
+(COMMUNITY_BOARD_SEQ.nextval, '제주도 회 센터', '어디가 좋은가요??? 추천 부탁드려요~!~!', sysdate, 0, 'bit02@naver.com', null);
+insert into community_board
+(C_NUMBER, C_TITLE, C_CONTENT, C_WRITEDATE, C_VIEWCOUNT, EMAIL, C_FILE)
+values
+(COMMUNITY_BOARD_SEQ.nextval, '깨끗하고 조용한 숙소', '어디가 좋을까요?? 할머니 할아버지 모시고 가는곳이라 조용했으면 좋겠습니다', sysdate, 0, 'bit03@naver.com', null);
+
+--cartlist
+INSERT INTO cartlist(	CONTENT_ID	EMAIL	)
+VALUES(	 'CNTS_000000000022873'	, 'mhcmhc@naver.com'	);		
+INSERT INTO cartlist(			)
+VALUES(	 'CNTS_000000000018432'	, 'mhcmhc@naver.com'	);
+INSERT INTO cartlist(			)
+VALUES(	 'CNTS_200000000010373'	, 'mhcmhc@naver.com'	);
+
