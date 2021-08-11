@@ -18,13 +18,13 @@ JAVA와 JavaScript, JSP 만을 이용하여 MVC패턴의 Model 2 방식으로 �
 <br>
 
 ## 개발환경
-Back End : JAVA(Collection ,IO 등) , Servlet (Controller 역할 처리) , JSP(EL & JSTL) <br>
-Front End : HTML5 , CSS3 , JavaScript , Jquery ,Ajax, BootStrap <br>
-API : Sweet Alert , Chart.js , 날씨 API , 관광지 API , KaKao Maps API <br>
-Server : Apache Tomcat 9.0 <br>
-DB : Oracle11g <br>
-Development Tools : Eclipse , sqldeveloper , eXERD , Slack , GoogleDocs <br>
-형상관리 : Git , GitHub , Sourcetree <br>
+<li>Back End : JAVA(Collection ,IO 등) , Servlet (Controller 역할 처리) , JSP(EL & JSTL) </li><br>
+<li>Front End : HTML5 , CSS3 , JavaScript , Jquery ,Ajax, BootStrap </li><br>
+<li>API : Sweet Alert , Chart.js , 날씨 API , 관광지 API , KaKao Maps API </li><br>
+<li>Server : Apache Tomcat 9.0 </li><br>
+<li>DB : Oracle11g </li><br>
+<li>Development Tools : Eclipse , sqldeveloper , eXERD , Slack , GoogleDocs </li><br>
+<li>형상관리 : Git , GitHub , Sourcetree </li><br>
 
 <br>
 
@@ -39,5 +39,6 @@ Development Tools : Eclipse , sqldeveloper , eXERD , Slack , GoogleDocs <br>
 <br>
 
 ## 형상관리(GIT)
-![깃](https://user-images.githubusercontent.com/78411713/128957776-52d1678d-9f9f-44a7-812c-2680cf80020d.JPG)
+![브랜치](https://user-images.githubusercontent.com/78411713/128958524-df3f08f9-c520-4ccc-a70c-ab2679bf436a.JPG)
+
 
