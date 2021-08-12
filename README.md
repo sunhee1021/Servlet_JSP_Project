@@ -20,7 +20,7 @@ JAVA와 JavaScript, JSP 만을 이용하여 MVC패턴의 Model 2 방식으로 �
 ## 개발환경
 <li>Back End : JAVA(Collection ,IO 등) , Servlet (Controller 역할 처리) , JSP(EL & JSTL) </li><br>
 <li>Front End : HTML5 , CSS3 , JavaScript , Jquery ,Ajax, BootStrap </li><br>
-<li>API : Sweet Alert , Chart.js , 날씨 API , 관광지 API , KaKao Maps API </li><br>
+<li>API : Sweet Alert , Chart.js , 날씨 API , 비짓제주(관광지) API , KaKao Maps API </li><br>
 <li>Server : Apache Tomcat 9.0 </li><br>
 <li>DB : Oracle11g </li><br>
 <li>Development Tools : Eclipse , sqldeveloper , eXERD , Slack , GoogleDocs </li><br>
